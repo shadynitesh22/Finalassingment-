@@ -9,8 +9,9 @@
     android:background="#455357">
 
     <TextView
+
         android:fontFamily="cursive"
-        android:textColor="#7F9400"
+        android:textColor="#7B8D93"
         android:layout_gravity="center"
         android:layout_width="120dp"
         android:layout_height="wrap_content"
@@ -20,13 +21,13 @@
     <ImageView
         android:layout_marginTop="10dp"
         android:layout_width="300dp"
-        android:layout_height="100dp"
+        android:layout_height="50dp"
         android:layout_gravity="center"
         app:srcCompat="@drawable/one" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="50dp"
         android:orientation="horizontal"
 
 
@@ -44,7 +45,7 @@
         <Button
             android:id="@+id/renter"
             android:text="Renter"
-            android:backgroundTint="@color/black"
+            android:backgroundTint="#B9D94C"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
     </LinearLayout>
