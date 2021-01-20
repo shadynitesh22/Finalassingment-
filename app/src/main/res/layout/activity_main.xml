@@ -6,17 +6,17 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity"
-    android:background="#455357">
+    android:background="#FFF6F6">
 
     <TextView
-
-        android:fontFamily="cursive"
-        android:textColor="#7B8D93"
-        android:layout_gravity="center"
-        android:layout_width="120dp"
+        android:background="@drawable/customborder"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="26dp"
-        android:text="Ghar-Bethi " />
+        android:layout_gravity="center"
+        android:fontFamily="@font/cutive"
+        android:text="Ghar-Bethi "
+        android:textColor="#7B8D93"
+        android:textSize="26dp" />
 
     <ImageView
         android:layout_marginTop="10dp"
@@ -34,19 +34,23 @@
         >
 
         <Button
+            android:textColor="@color/black"
+            android:fontFamily="@font/cutive"
             android:id="@+id/owner"
             android:text="Owner"
-            android:backgroundTint="#DBD9A3"
+            android:backgroundTint="#DEFFF8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="100dp"
             android:layout_marginRight="3dp"
              />
         <Button
+            android:textColor="@color/black"
+            android:fontFamily="@font/cutive"
 
             android:id="@+id/renter"
             android:text="Renter"
-            android:backgroundTint="#ffc173"
+            android:backgroundTint="#B5D9D7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
     </LinearLayout>

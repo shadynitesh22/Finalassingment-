@@ -15,12 +15,13 @@
         app:lottie_autoPlay="true"
         />
     <TextView
+        android:fontFamily="@font/cinzel"
         android:layout_marginTop="600dp"
         android:layout_gravity="end"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="20dp"
-        android:text="Detail Oriented Searches for Renters  ....... "
+        android:text="Detail Oriented Searches for Renters  "
         />
 
 </FrameLayout>

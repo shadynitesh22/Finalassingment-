@@ -4,18 +4,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#ffc173"
+    android:background="#B5D9D7"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Renter">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:fontFamily="cursive"
+        android:fontFamily="@font/cinzel"
         android:textColor="@color/black"
-        android:background="#D6DBCA"
         android:layout_width="300dp"
         android:layout_height="60dp"
-        android:text="          Renter!!"
+        android:text="        Renter"
 
         android:textSize="40dp"
         android:layout_gravity="center"
@@ -39,7 +38,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:textSize="20dp"
-            android:text="Username"
+            android:hint="Username"
             />
         <EditText
             android:textColor="@color/black"
@@ -49,9 +48,10 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:textSize="20dp"
-            android:text="password"
+            android:hint="Password"
             />
         <Button
+            android:fontFamily="@font/days_one"
             android:textColor="@color/white"
             android:text="Login"
             android:layout_gravity="center"
@@ -60,12 +60,14 @@
             android:backgroundTint="@color/black"
             android:layout_height="wrap_content"/>
         <TextView
+            android:fontFamily="@font/days_one"
 
             android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Don't have a account?  Sign up as an Renter"/>
         <Button
+            android:fontFamily="@font/days_one"
             android:textColor="@color/white"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
