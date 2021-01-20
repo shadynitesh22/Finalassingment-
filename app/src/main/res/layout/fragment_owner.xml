@@ -10,6 +10,7 @@
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
+
         android:fontFamily="cursive"
         android:textColor="@color/black"
         android:background="#D6DBCA"
@@ -33,23 +34,26 @@
     android:layout_width="match_parent"
     android:layout_height="500dp">
     <EditText
+        android:textColor="@color/black"
         android:background="@color/white"
         android:layout_marginTop="50dp"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:textSize="20dp"
-        android:hint="Username"
+        android:text="Username"
         />
     <EditText
+        android:textColor="@color/black"
         android:inputType="textPassword"
         android:background="@color/white"
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:textSize="20dp"
-        android:hint="password"
+        android:text="password"
         />
         <Button
+            android:textColor="@color/white"
             android:text="Login"
             android:layout_gravity="center"
             android:layout_marginTop="40dp"
@@ -62,6 +66,7 @@
         android:layout_height="wrap_content"
         android:text="Don't have a account?  Sign up as an owner"/>
     <Button
+        android:textColor="@color/white"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/black"

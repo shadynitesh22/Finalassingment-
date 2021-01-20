@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FinalAssingment">
-        <activity android:name=".Splashscreen2"></activity>
+        <activity android:name=".Splashscreen3"></activity>
+        <activity android:name=".Splashscreen2" />
         <activity android:name=".Dashbord1Activity" />
         <activity android:name=".SplashScreenActivity">
             <intent-filter>
