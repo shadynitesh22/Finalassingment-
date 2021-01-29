@@ -19,12 +19,14 @@ class MainActivity : AppCompatActivity() {
                 commit()
 
             }
-            renter.setOnClickListener {
-                supportFragmentManager.beginTransaction().apply {
-                    replace(R.id.container,Renter())
-                    addToBackStack(null)
-                    commit()
-                }
+
+        }
+
+        renter.setOnClickListener {
+            supportFragmentManager.beginTransaction().apply {
+                replace(R.id.container,Renter())
+                addToBackStack(null)
+                commit()
             }
         }
     }

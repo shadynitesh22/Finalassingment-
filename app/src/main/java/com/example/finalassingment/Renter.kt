@@ -8,6 +8,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
+import com.example.finalassingment.DB.UserDb
+import com.example.finalassingment.Model.User
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class Renter : Fragment() {
     private lateinit var username: EditText
@@ -28,11 +35,36 @@ class Renter : Fragment() {
         pass=view.findViewById(R.id.passwords1)
         login=view.findViewById(R.id.logins1)
         signup=view.findViewById(R.id.signups1)
+        login.setOnClickListener {
+            logins()
+        }
         signup.setOnClickListener {
             val intent = Intent (getActivity(),RenterSignUpActivity::class.java)
             getActivity()?.startActivity(intent)
                     }
         return view
+    }
+    private fun logins() {
+        val username = username.text.toString()
+        val password = pass.text.toString()
+
+        var user: User? = null
+        CoroutineScope(Dispatchers.IO).launch {
+            user = UserDb
+                .getInstance(this@Renter)
+                .getUserDAO()
+                .checkUser(username, password)
+            if (user == null) {
+                withContext(Dispatchers.Main) {
+                    Toast.makeText(context, "Invalid credentials", Toast.LENGTH_SHORT)
+                        .show()
+                }
+            } else {
+                val intent = Intent (getActivity(),Dashboard2Activity::class.java)
+                getActivity()?.startActivity(intent)
+
+            }
+        }
     }
 
 }
