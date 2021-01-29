@@ -88,7 +88,7 @@
             android:textColor="@color/white"
             android:text="Sign -Up"
             android:layout_gravity="center"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="20dp"
             android:layout_width="wrap_content"
             android:backgroundTint="@color/black"
             android:layout_height="wrap_content"/>
@@ -100,7 +100,6 @@
             android:text="Already have a account? Log-In as an Renter"/>
         <Button
             android:id="@+id/login1"
-            android:layout_marginTop="10dp"
             android:fontFamily="@font/days_one"
             android:textColor="@color/white"
             android:layout_width="wrap_content"
@@ -112,4 +111,4 @@
 
     </LinearLayout>
 
-</>
+</LinearLayout>

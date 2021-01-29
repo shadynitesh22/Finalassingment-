@@ -34,6 +34,7 @@
     android:layout_width="match_parent"
     android:layout_height="500dp">
     <EditText
+        android:id="@+id/usernames"
         android:textColor="@color/black"
         android:background="@color/white"
         android:layout_marginTop="50dp"
@@ -43,6 +44,7 @@
         android:hint="Username"
         />
     <EditText
+        android:id="@+id/passwords"
 
         android:textColor="@color/black"
         android:inputType="textPassword"
@@ -54,6 +56,7 @@
         android:hint="Password"
         />
         <Button
+            android:id="@+id/logins"
             android:fontFamily="@font/days_one"
             android:textColor="@color/white"
             android:text="Login"
@@ -69,6 +72,7 @@
         android:layout_height="wrap_content"
         android:text="Don't have a account?  Sign up as an owner"/>
     <Button
+        android:id="@+id/signups"
         android:fontFamily="@font/days_one"
         android:textColor="@color/white"
         android:layout_width="wrap_content"
