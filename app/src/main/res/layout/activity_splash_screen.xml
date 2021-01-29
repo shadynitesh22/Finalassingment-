@@ -23,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
-        android:layout_marginTop="600dp"
+        android:layout_marginTop="560dp"
         android:text="Find Hassel Free Rent in the city  "
         android:textSize="20dp" />
 
@@ -32,7 +32,7 @@
         android:layout_width="100dp"
         android:layout_height="50dp"
         android:layout_gravity="end"
-        android:layout_marginTop="630dp"
+        android:layout_marginTop="580dp"
         android:backgroundTint="@color/teal_700"
         android:src="@android:drawable/ic_media_next"
         android:text="Next"
