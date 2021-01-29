@@ -53,10 +53,12 @@ class Owner : Fragment() {
 
         var user: User? = null
         CoroutineScope(Dispatchers.IO).launch {
-            user = UserDb
-                .getInstance(this@Owner)
-                .getUserDAO()
-                .checkUser(username, password)
+            user = context?.let {
+                UserDb
+                    .getInstance(it)
+                    .getUserDAO()
+                    .checkUser(username, password)
+            }
             if (user == null) {
                 withContext(Dispatchers.Main) {
                     Toast.makeText(context, "Invalid credentials", Toast.LENGTH_SHORT)

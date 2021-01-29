@@ -1,5 +1,6 @@
 package com.example.finalassingment
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -17,6 +18,10 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class Renter : Fragment() {
+    val applicationContext: Context
+        get() {
+            TODO()
+        }
     private lateinit var username: EditText
     private lateinit var pass: EditText
     private lateinit var login: Button
@@ -50,10 +55,12 @@ class Renter : Fragment() {
 
         var user: User? = null
         CoroutineScope(Dispatchers.IO).launch {
-            user = UserDb
-                .getInstance(this@Renter)
-                .getUserDAO()
-                .checkUser(username, password)
+            user = context?.let {
+                UserDb
+                    .getInstance(it)
+                    .getUserDAO()
+                    .checkUser(username, password)
+            }
             if (user == null) {
                 withContext(Dispatchers.Main) {
                     Toast.makeText(context, "Invalid credentials", Toast.LENGTH_SHORT)

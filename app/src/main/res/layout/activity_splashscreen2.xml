@@ -5,7 +5,9 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent"
-    tools:context=".Splashscreen2">
+    tools:context=".Splashscreen2"
+    android:background="@color/one"
+    >
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/animationView"
         android:layout_width="match_parent"
@@ -13,10 +15,11 @@
         app:lottie_fileName="data1.json"
         app:lottie_loop="true"
         app:lottie_autoPlay="true"
+        app:lottie_speed="1.25"
         />
     <TextView
         android:fontFamily="@font/cinzel"
-        android:layout_marginTop="600dp"
+        android:layout_marginTop="550dp"
         android:layout_gravity="end"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -25,12 +28,11 @@
         />
     <ImageButton
         android:id="@+id/next1"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
         android:layout_gravity="end"
-        android:layout_marginTop="630dp"
-        android:backgroundTint="@color/one"
+        android:layout_marginTop="590dp"
+        android:backgroundTint="@color/teal_700"
         android:src="@android:drawable/ic_media_next"
-        android:text="Next"
         />
 </FrameLayout>

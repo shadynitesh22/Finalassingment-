@@ -6,7 +6,6 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.finalassingment.DAO.UserDAO
 import com.example.finalassingment.Model.User
-import com.example.finalassingment.Renter
 
 @Database(
     entities = [(User::class)],
@@ -19,7 +18,7 @@ abstract class UserDb:RoomDatabase() {
     companion object {
         @Volatile
         private var instance : UserDb? = null
-        fun getInstance(context: Renter) : UserDb{
+        fun getInstance(context: Context) : UserDb{
             if(instance == null){
                 synchronized(UserDb::class){
                     instance = buildDatabase(context)
@@ -27,7 +26,7 @@ abstract class UserDb:RoomDatabase() {
             }
             return instance!!
         }
-        fun buildDatabase(context : Context) =
+        fun buildDatabase(context: Context)=
             Room.databaseBuilder(
                 context.applicationContext,
                 UserDb::class.java,
