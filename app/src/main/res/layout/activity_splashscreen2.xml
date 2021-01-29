@@ -13,22 +13,13 @@
         android:layout_height="match_parent"
         android:orientation="horizontal"
         >
+
         <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/animationView"
-            android:layout_width="wrap_content"
-            android:layout_height="600dp"
-            app:lottie_fileName="data1.json"
-            app:lottie_loop="true"
-            app:lottie_autoPlay="true"
-            app:lottie_speed="1.25"
-            android:layout_weight="1"
-            />
-        <com.airbnb.lottie.LottieAnimationView
-            android:layout_weight="1"
+
             android:id="@+id/animationView1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:lottie_fileName="load.json"
+            android:layout_width="wrap_content"
+            android:layout_height="500dp"
+            app:lottie_fileName="data5.json"
             app:lottie_loop="true"
             app:lottie_autoPlay="true"
             app:lottie_speed="1.25"
