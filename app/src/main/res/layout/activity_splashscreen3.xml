@@ -10,7 +10,7 @@
         android:id="@+id/animationView"
         android:layout_width="match_parent"
         android:layout_height="600dp"
-        app:lottie_fileName="load.json"
+        app:lottie_fileName="data2.json"
         app:lottie_loop="true"
         app:lottie_autoPlay="true"
         />
@@ -23,5 +23,14 @@
         android:fontFamily="@font/cinzel"
         android:text="Premium Data collection of Renters  . "
         android:textSize="20dp" />
-
+    <ImageButton
+        android:id="@+id/next2"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginTop="630dp"
+        android:backgroundTint="@color/one"
+        android:src="@android:drawable/ic_media_next"
+        android:text="Next"
+        />
 </FrameLayout>

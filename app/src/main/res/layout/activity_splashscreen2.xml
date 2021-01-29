@@ -23,5 +23,14 @@
         android:textSize="20dp"
         android:text="Detail Oriented Searches for Renters  "
         />
-
+    <ImageButton
+        android:id="@+id/next1"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginTop="630dp"
+        android:backgroundTint="@color/one"
+        android:src="@android:drawable/ic_media_next"
+        android:text="Next"
+        />
 </FrameLayout>
