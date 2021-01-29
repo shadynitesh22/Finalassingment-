@@ -10,7 +10,7 @@
         android:id="@+id/animationView"
         android:layout_width="match_parent"
         android:layout_height="600dp"
-        app:lottie_fileName="data2.json"
+        app:lottie_fileName="load.json"
         app:lottie_loop="true"
         app:lottie_autoPlay="true"
         />
