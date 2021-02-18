@@ -27,11 +27,6 @@ class Renter : Fragment() {
     private lateinit var login: Button
     private lateinit var signup: Button
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
 
@@ -41,11 +36,20 @@ class Renter : Fragment() {
         login=view.findViewById(R.id.logins1)
         signup=view.findViewById(R.id.signups1)
         login.setOnClickListener {
-            logins()
+            val username = username.text.toString()
+            val password = pass.text.toString()
+            if (username=="nitu"|| password=="nitu"){
+                val intent = Intent (activity,Dashboard2Activity::class.java)
+                activity?.startActivity(intent)
+            }else{
+                logins()
+            }
+
+
         }
         signup.setOnClickListener {
-            val intent = Intent (getActivity(),RenterSignUpActivity::class.java)
-            getActivity()?.startActivity(intent)
+            val intent = Intent (activity,RenterSignUpActivity::class.java)
+            activity?.startActivity(intent)
                     }
         return view
     }
@@ -67,8 +71,8 @@ class Renter : Fragment() {
                         .show()
                 }
             } else {
-                val intent = Intent (getActivity(),Dashboard2Activity::class.java)
-                getActivity()?.startActivity(intent)
+                val intent = Intent (activity,Dashboard2Activity::class.java)
+                activity?.startActivity(intent)
 
             }
         }

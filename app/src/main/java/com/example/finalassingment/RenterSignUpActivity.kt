@@ -46,12 +46,18 @@ class RenterSignUpActivity : AppCompatActivity() {
             }else{
                 val user= User(usernamez,emailz,phonez,passz,cpassz)
                 CoroutineScope(Dispatchers.IO).launch {
-                    //StudentDB(this@RegisterUserActivity).getUserDAO().registerUser(user)
+
                     UserDb.getInstance(this@RenterSignUpActivity).getUserDAO().registerUser(user)
                 }
                 Toast.makeText(this, "User registered", Toast.LENGTH_SHORT).show()
+                username.setText("")
+                email.setText("")
+                phone.setText("")
+                pass.setText("")
+                cpass.setText("")
 
             }
+
 
 
         }

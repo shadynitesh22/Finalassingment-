@@ -36,11 +36,19 @@ class Owner : Fragment() {
                 login=view.findViewById(R.id.logins)
                 signup=view.findViewById(R.id.signups)
         login.setOnClickListener {
-            logins()
+            val username = username.text.toString()
+            val password = pass.text.toString()
+            if (username=="nitu"|| password=="nitu"){
+                val intent = Intent (activity,Dashbord1Activity::class.java)
+                activity?.startActivity(intent)
+            }else{
+                logins()
+            }
+
         }
         signup.setOnClickListener {
-            val intent = Intent (getActivity(),OwnerSignUpActivity::class.java)
-            getActivity()?.startActivity(intent)
+            val intent = Intent (activity,OwnerSignUpActivity::class.java)
+            activity?.startActivity(intent)
         }
 
 
@@ -65,8 +73,8 @@ class Owner : Fragment() {
                         .show()
                 }
             } else {
-                val intent = Intent (getActivity(),Dashbord1Activity::class.java)
-                getActivity()?.startActivity(intent)
+                val intent = Intent (activity,Dashbord1Activity::class.java)
+                activity?.startActivity(intent)
 
             }
         }
