@@ -8,9 +8,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.LinearLayout
 import android.widget.Toast
+import com.example.finalassingment.API.ServiceBuilder
 import com.example.finalassingment.DB.UserDb
 import com.example.finalassingment.Model.User
+import com.example.finalassingment.repository.RepoUser
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -22,6 +26,7 @@ class Owner : Fragment() {
     private lateinit var pass:EditText
     private lateinit var login:Button
     private lateinit var signup:Button
+    private lateinit var linearLayout: LinearLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -66,6 +71,7 @@ class Owner : Fragment() {
                     .getInstance(it)
                     .getUserDAO()
                     .checkUser(username, password)
+
             }
             if (user == null) {
                 withContext(Dispatchers.Main) {
@@ -76,6 +82,39 @@ class Owner : Fragment() {
                 val intent = Intent (activity,Dashbord1Activity::class.java)
                 activity?.startActivity(intent)
 
+            }
+        }
+
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                val repository = RepoUser()
+                val response = repository.loginUser(username, password)
+                if (response.success == true) {
+                    ServiceBuilder.token = "Bearer " + response.token
+                    val intent = Intent (activity,Dashbord1Activity::class.java)
+                    activity?.startActivity(intent)
+
+                } else {
+                    withContext(Dispatchers.Main) {
+                        val snack =
+                            Snackbar.make(
+                                linearLayout,
+                                "Invalid credentials",
+                                Snackbar.LENGTH_LONG
+                            )
+                        snack.setAction("OK", View.OnClickListener {
+                            snack.dismiss()
+                        })
+                        snack.show()
+                    }
+                }
+
+            } catch (ex: Exception) {
+                withContext(Dispatchers.Main) {
+                    Toast.makeText(context,
+                        "Login error", Toast.LENGTH_SHORT
+                    ).show()
+                }
             }
         }
     }
