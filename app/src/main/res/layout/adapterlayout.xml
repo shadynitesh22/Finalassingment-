@@ -12,7 +12,7 @@
         android:backgroundTint="@color/one"
         android:layout_width="match_parent"
         android:layout_height="300dp" >
-        <ImageButton
+        <de.hdodenhof.circleimageview.CircleImageView
             android:backgroundTint="@color/teal_700"
             android:id="@+id/postedit"
             android:layout_width="wrap_content"

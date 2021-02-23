@@ -1,4 +1,4 @@
 package com.example.finalassingment.Adapter
 
-class RenterAdapter {
+class PostAdapter {
 }

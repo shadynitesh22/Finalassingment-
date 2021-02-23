@@ -1,5 +1,6 @@
 package com.example.finalassingment.Adapter
 
+import android.app.AlertDialog
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.TextureView
@@ -8,14 +9,21 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.finalassingment.API.ServiceBuilder
 import com.example.finalassingment.Model.Post
 import com.example.finalassingment.Model.User
 import com.example.finalassingment.R
+import com.example.finalassingment.repository.RepoAddPost
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class UserAdapter (
-    private val lstStudents:ArrayList<Post>,
+    private val lstPosts:ArrayList<Post>,
     private val context: Context
 
 
@@ -39,7 +47,7 @@ class UserAdapter (
     }
 
     override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
-        val post = lstStudents[position]
+        val post = lstPosts[position]
         holder.propertyName.text=post.PostName
         holder.propertyPrice.text=post.PostPrice
         holder.propertyLocation.text=post.PostLocation
@@ -50,11 +58,53 @@ class UserAdapter (
                 .fitCenter()
                 .into(holder.photo)
         }
+        holder.postdel.setOnClickListener {
+            val builder = AlertDialog.Builder(context)
+            builder.setTitle("Delete student")
+            builder.setMessage("Are you sure you want to delete ${post.PostName} ??")
+            builder.setIcon(android.R.drawable.ic_delete)
+            builder.setPositiveButton("Yes") { _, _ ->
+                CoroutineScope(Dispatchers.IO).launch {
+                    try {
+                        val postRepository = RepoAddPost()
+                        val response = postRepository.deletePost(post._id!!)
+                        if (response.success == true) {
+                            withContext(Dispatchers.Main) {
+                                Toast.makeText(
+                                    context,
+                                    "Student Deleted",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            }
+                            withContext(Dispatchers.Main) {
+                                lstPosts.remove(post)
+                                notifyDataSetChanged()
+                            }
+                        }
+                    } catch (ex: Exception) {
+                        withContext(Dispatchers.Main) {
+                            Toast.makeText(
+                                context,
+                                ex.toString(),
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                    }
+                }
+            }
+            builder.setNegativeButton("No") { _, _ ->
+            }
+            val alertDialog: AlertDialog = builder.create()
+            alertDialog.setCancelable(false)
+            alertDialog.show()
+        }
 
 
     }
 
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+        return lstPosts.size
     }
 }
+
+
