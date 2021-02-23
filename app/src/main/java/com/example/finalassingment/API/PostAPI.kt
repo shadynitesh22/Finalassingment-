@@ -22,7 +22,7 @@ interface PostAPI {
     ): Response<GetAllPostResponse>
 
     @DELETE("Post/{id}")
-    suspend fun deleteStudent(
+    suspend fun deletePost(
         @Header("Authorization")token: String,
         @Path("id")id:String
     ): Response<DeletePostResponse>

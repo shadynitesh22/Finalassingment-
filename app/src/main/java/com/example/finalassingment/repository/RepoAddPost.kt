@@ -4,10 +4,7 @@ import com.example.finalassingment.API.MyApiRequest
 import com.example.finalassingment.API.PostAPI
 import com.example.finalassingment.API.ServiceBuilder
 import com.example.finalassingment.Model.Post
-import com.example.finalassingment.Response.AddPostResponse
-import com.example.finalassingment.Response.DeleteResponse
-import com.example.finalassingment.Response.GetAllPostResponse
-import com.example.finalassingment.Response.ImageResponse
+import com.example.finalassingment.Response.*
 import okhttp3.MultipartBody
 
 class RepoAddPost: MyApiRequest() {
@@ -28,15 +25,15 @@ class RepoAddPost: MyApiRequest() {
             PostAPI.viewPost(ServiceBuilder.token!!)
         }
     }
-    suspend fun deletePost(id:String): DeleteResponse {
+    suspend fun deletePost(id:String): DeletePostResponse {
         return apiRequest {
             PostAPI.deletePost(ServiceBuilder.token!!,id)
         }
     }
     suspend fun uploadImage(id: String, body: MultipartBody.Part)
-            : ImageResponse {
+            : PostImageResponse {
         return apiRequest {
-            studentAPI.uploadImage(ServiceBuilder.token!!, id, body)
+            PostAPI.uploadImage(ServiceBuilder.token!!, id, body)
         }
     }
 }

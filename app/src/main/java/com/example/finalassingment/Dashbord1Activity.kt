@@ -8,8 +8,8 @@ import androidx.core.app.ActivityCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.finalassingment.Adapter.UserAdapter
-import com.example.finalassingment.Model.User
-import com.example.finalassingment.repository.RepoAddUser
+import com.example.finalassingment.Model.Post
+import com.example.finalassingment.repository.RepoAddPost
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -29,19 +29,19 @@ class Dashbord1Activity : AppCompatActivity() {
             requestPermission()
         }
         recyclerView = findViewById(R.id.recyclerview)
-        loadUsers()
+        loadPost()
     }
 
-    private fun loadUsers() {
+    private fun loadPost() {
         CoroutineScope(Dispatchers.IO).launch {
             try {
-                val userRepository = RepoAddUser()
-                val response = userRepository.getAllStudents()
+                val postRepository = RepoAddPost()
+                val response = postRepository.getAllPost()
                 if(response.success==true){
                     // Put all the student details in lstStudents
                     val lstStudents = response.data
                     withContext(Dispatchers.Main){
-                        val adapter = UserAdapter(lstStudents as ArrayList<User>, this@Dashbord1Activity)
+                        val adapter = UserAdapter(lstStudents as ArrayList<Post>, this@Dashbord1Activity)
                         recyclerView.layoutManager = LinearLayoutManager(this@Dashbord1Activity)
                         recyclerView.adapter = adapter
                     }

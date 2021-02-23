@@ -1,4 +1,5 @@
 package com.example.finalassingment.Response
 
-class DeleteResponse {
-}
+data class DeleteResponse(
+    val success :Boolean?=null
+)

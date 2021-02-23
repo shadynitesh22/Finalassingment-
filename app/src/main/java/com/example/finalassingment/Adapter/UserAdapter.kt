@@ -72,7 +72,7 @@ class UserAdapter (
                             withContext(Dispatchers.Main) {
                                 Toast.makeText(
                                     context,
-                                    "Student Deleted",
+                                    "Post Deleted",
                                     Toast.LENGTH_SHORT
                                 ).show()
                             }
