@@ -1,4 +1,6 @@
 package com.example.finalassingment.Response
 
-class PostImageResponse {
-}
+data class PostImageResponse (
+    val success : Boolean?=null,
+    val data: String?=null
+        )

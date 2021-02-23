@@ -156,8 +156,8 @@ class AddPostActivity : AppCompatActivity() {
         val Post = Post(PostName= fullName, PostLocation = location, PostPrice = price, PostStatus = status)
         CoroutineScope(Dispatchers.IO).launch {
             try {
-                val PostRepository = RepoAddPost()
-                val response = PostRepository.addPost(Post)
+                val postRepository = RepoAddPost()
+                val response = postRepository.addPost(Post)
 
                 if (response.success == true) {
                     if (imageUrl != null) {
@@ -191,11 +191,11 @@ class AddPostActivity : AppCompatActivity() {
                 MultipartBody.Part.createFormData("file", file.name, reqFile)
             CoroutineScope(Dispatchers.IO).launch {
                 try {
-                    val studentRepository = RepoAddStudent()
-                    val response = studentRepository.uploadImage(studentId, body)
+                    val postRepository = RepoAddPost()
+                    val response = postRepository.uploadImage(studentId, body)
                     if (response.success == true) {
                         withContext(Dispatchers.Main) {
-                            Toast.makeText(this@AddStudentActivity, "Uploaded", Toast.LENGTH_SHORT)
+                            Toast.makeText(this@AddPostActivity, "Uploaded", Toast.LENGTH_SHORT)
                                 .show()
                         }
                     }
@@ -203,7 +203,7 @@ class AddPostActivity : AppCompatActivity() {
                     withContext(Dispatchers.Main) {
                         Log.d("Mero Error ", ex.localizedMessage)
                         Toast.makeText(
-                            this@AddStudentActivity,
+                            this@AddPostActivity,
                             ex.localizedMessage,
                             Toast.LENGTH_SHORT
                         ).show()
