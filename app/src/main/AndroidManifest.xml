@@ -17,7 +17,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FinalAssingment">
-        <activity android:name=".Dashboard2Activity"></activity>
+        <activity android:name=".AddPostActivity"></activity>
+        <activity android:name=".Dashboard2Activity" />
         <activity android:name=".RenterSignUpActivity" />
         <activity android:name=".OwnerSignUpActivity" />
         <activity android:name=".Splashscreen3" />

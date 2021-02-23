@@ -8,9 +8,11 @@ import android.widget.EditText
 import android.widget.Toast
 import com.example.finalassingment.DB.UserDb
 import com.example.finalassingment.Model.User
+import com.example.finalassingment.repository.RepoUser
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class RenterSignUpActivity : AppCompatActivity() {
     private lateinit var username: EditText
@@ -58,6 +60,30 @@ class RenterSignUpActivity : AppCompatActivity() {
 
             }
 
+
+            val user =
+                User(username = usernamez, email = emailz, phone = phonez, pass = passz)
+            CoroutineScope(Dispatchers.IO).launch {
+                try {
+                    val userRepository = RepoUser()
+                    val response = userRepository.registerUser(user)
+                    if(response.success == true){
+                        withContext(Dispatchers.Main) {
+                            Toast.makeText(
+                                this@RenterSignUpActivity,
+                                "Register bhayo", Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                    }
+                } catch (ex: Exception) {
+                    withContext(Dispatchers.Main) {
+                        Toast.makeText(
+                            this@RenterSignUpActivity,
+                            ex.toString(), Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                }
+            }
 
 
         }
