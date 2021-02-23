@@ -12,7 +12,7 @@ class RepoAddPost: MyApiRequest() {
     private val PostAPI = ServiceBuilder.buildService(PostAPI::class.java)
 
     //Add Student
-    suspend fun addStudent(post: Post): AddPostResponse{
+    suspend fun addPost(post: Post): AddPostResponse{
         return apiRequest {
             PostAPI.addPost(
                 ServiceBuilder.token!!, post
