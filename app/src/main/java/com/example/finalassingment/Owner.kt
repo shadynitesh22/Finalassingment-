@@ -11,7 +11,7 @@ import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.Toast
 import com.example.finalassingment.API.ServiceBuilder
-import com.example.finalassingment.DB.UserDb
+
 import com.example.finalassingment.Model.User
 import com.example.finalassingment.repository.RepoUser
 import com.google.android.material.snackbar.Snackbar
@@ -64,26 +64,7 @@ class Owner : Fragment() {
         val username = username.text.toString()
         val password = pass.text.toString()
 
-        var user: User? = null
-        CoroutineScope(Dispatchers.IO).launch {
-            user = context?.let {
-                UserDb
-                    .getInstance(it)
-                    .getUserDAO()
-                    .checkUser(username, password)
 
-            }
-            if (user == null) {
-                withContext(Dispatchers.Main) {
-                    Toast.makeText(context, "Invalid credentials", Toast.LENGTH_SHORT)
-                        .show()
-                }
-            } else {
-                val intent = Intent (activity,Dashbord1Activity::class.java)
-                activity?.startActivity(intent)
-
-            }
-        }
 
         CoroutineScope(Dispatchers.IO).launch {
             try {
