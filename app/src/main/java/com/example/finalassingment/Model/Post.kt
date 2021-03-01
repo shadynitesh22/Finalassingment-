@@ -1,8 +1,6 @@
 package com.example.finalassingment.Model
 
-import androidx.room.Entity
-import androidx.room.PrimaryKey
-//@Entity
+
 data class Post (
 var _id: String? = null,
 val PostRating: String? =null,
@@ -15,9 +13,5 @@ val PostStatus:String?=null
 
 )
 
-//{
-  //  @PrimaryKey(autoGenerate = true)
-    //var postid:Int=0
-//}
 
 
