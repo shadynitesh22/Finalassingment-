@@ -41,8 +41,8 @@ class Owner : Fragment() {
                 login=view.findViewById(R.id.logins)
                 signup=view.findViewById(R.id.signups)
         login.setOnClickListener {
-            val username = username.text.toString()
-            val password = pass.text.toString()
+                val username = username.text.toString()
+                val password = pass.text.toString()
             if (username=="nitu"|| password=="nitu"){
                 val intent = Intent (activity,Dashbord1Activity::class.java)
                 activity?.startActivity(intent)

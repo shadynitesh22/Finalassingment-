@@ -9,31 +9,32 @@ import okhttp3.MultipartBody
 
 class RepoAddPost: MyApiRequest() {
 
-    private val PostAPI = ServiceBuilder.buildService(PostAPI::class.java)
+    private val postAPI = ServiceBuilder.buildService(PostAPI::class.java)
+
 
     //Add Student
-    suspend fun addPost(post: Post): AddPostResponse{
+    suspend fun addPost(post:Post): AddPostResponse {
         return apiRequest {
-            PostAPI.addPost(
-                ServiceBuilder.token!!, post
+            postAPI.addPost(
+                    ServiceBuilder.token!!, post
             )
         }
     }
 
-    suspend fun getAllPost(): GetAllPostResponse {
+    suspend fun getAllPosts(): GetAllPostResponse {
         return apiRequest {
-            PostAPI.viewPost(ServiceBuilder.token!!)
+            postAPI.viewPost(ServiceBuilder.token!!)
         }
     }
-    suspend fun deletePost(id:String): DeletePostResponse {
+    suspend fun deletePosts(id:String): DeletePostResponse {
         return apiRequest {
-            PostAPI.deletePost(ServiceBuilder.token!!,id)
+            postAPI.deletePost(ServiceBuilder.token!!,id)
         }
     }
     suspend fun uploadImage(id: String, body: MultipartBody.Part)
             : PostImageResponse {
         return apiRequest {
-            PostAPI.uploadImage(ServiceBuilder.token!!, id, body)
+            postAPI.uploadImage(ServiceBuilder.token!!, id, body)
         }
     }
 }

@@ -36,7 +36,7 @@ class Dashbord1Activity : AppCompatActivity() {
         CoroutineScope(Dispatchers.IO).launch {
             try {
                 val postRepository = RepoAddPost()
-                val response = postRepository.getAllPost()
+                val response = postRepository.getAllPosts()
                 if(response.success==true){
                     // Put all the student details in lstStudents
                     val lstStudents = response.data
@@ -47,10 +47,10 @@ class Dashbord1Activity : AppCompatActivity() {
                     }
                 }
             }catch(ex : Exception){
-                withContext(Dispatchers.Main){
-                    Toast.makeText(this@Dashbord1Activity,
-                            "Error : ${ex.toString()}", Toast.LENGTH_SHORT).show()
-                }
+               // withContext(Dispatchers.Main){
+                 //   Toast.makeText(this@Dashbord1Activity,
+                   //         "Error : ${ex.toString()}", Toast.LENGTH_SHORT).show()
+                //}
             }
         }
     }

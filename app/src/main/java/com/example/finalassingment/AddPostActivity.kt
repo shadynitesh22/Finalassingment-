@@ -4,12 +4,11 @@ import android.app.Activity
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
-import android.util.Log
 import android.widget.*
+import androidx.appcompat.app.AppCompatActivity
 import com.example.finalassingment.Model.Post
 import com.example.finalassingment.repository.RepoAddPost
 import com.google.android.material.textfield.TextInputEditText
@@ -49,6 +48,7 @@ class AddPostActivity : AppCompatActivity() {
         rdoBuy = findViewById(R.id.rdoBuy)
         rdoRent = findViewById(R.id.rdoRent)
         btnSave = findViewById(R.id.btnSave)
+
         btnSave.setOnClickListener {
             saveStudent()
         }
@@ -141,7 +141,7 @@ class AddPostActivity : AppCompatActivity() {
     private fun saveStudent() {
         val fullName = etFullName.text.toString()
         val location = etLocation.text.toString()
-        val price = etPrice.text.toString()
+        val desc = etPrice.text.toString()
         var status = ""
         when {
             rdoBuy.isChecked -> {
@@ -153,11 +153,11 @@ class AddPostActivity : AppCompatActivity() {
 
         }
 
-        val Post = Post(PostName= fullName, PostLocation = location, PostPrice = price, PostStatus = status)
+        val post = Post(PostName= fullName, PostLocation = location, PostStatus = status, PostPrice =desc)
         CoroutineScope(Dispatchers.IO).launch {
             try {
                 val postRepository = RepoAddPost()
-                val response = postRepository.addPost(Post)
+                val response = postRepository.addPost(post)
 
                 if (response.success == true) {
                     if (imageUrl != null) {
@@ -171,18 +171,17 @@ class AddPostActivity : AppCompatActivity() {
                     }
                 }
             } catch (ex: Exception) {
-                withContext(Dispatchers.Main) {
-                    Toast.makeText(
-                        this@AddPostActivity,
-                        ex.toString(), Toast.LENGTH_SHORT
-                    ).show()
-                }
+               // withContext(Dispatchers.Main) {
+                 //   Toast.makeText(this@AddPostActivity,
+                   //     ex.toString(), Toast.LENGTH_SHORT
+                    //).show()
+               //}
             }
 
         }
     }
 
-    private fun uploadImage(studentId: String) {
+    private fun uploadImage(postId: String) {
         if (imageUrl != null) {
             val file = File(imageUrl!!)
             val reqFile =
@@ -192,7 +191,7 @@ class AddPostActivity : AppCompatActivity() {
             CoroutineScope(Dispatchers.IO).launch {
                 try {
                     val postRepository = RepoAddPost()
-                    val response = postRepository.uploadImage(studentId, body)
+                    val response = postRepository.uploadImage(postId, body)
                     if (response.success == true) {
                         withContext(Dispatchers.Main) {
                             Toast.makeText(this@AddPostActivity, "Uploaded", Toast.LENGTH_SHORT)
@@ -200,14 +199,14 @@ class AddPostActivity : AppCompatActivity() {
                         }
                     }
                 } catch (ex: Exception) {
-                    withContext(Dispatchers.Main) {
-                        Log.d("Mero Error ", ex.localizedMessage)
-                        Toast.makeText(
-                            this@AddPostActivity,
-                            ex.localizedMessage,
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    }
+                 //   withContext(Dispatchers.Main) {
+                   //     Log.d("Mero Error ",ex.localizedMessage)
+                     //   Toast.makeText(
+                       //     this@AddPostActivity,
+                         //   ex.localizedMessage,
+                           // Toast.LENGTH_SHORT
+                        //).show()
+                    //}
                 }
 
             }

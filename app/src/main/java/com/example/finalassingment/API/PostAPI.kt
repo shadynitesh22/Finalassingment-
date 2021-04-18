@@ -10,29 +10,30 @@ import retrofit2.Response
 import retrofit2.http.*
 
 interface PostAPI {
-    @POST("Post/")
+    //Add Student
+    @POST("post/")
     suspend fun addPost(
-        @Header("Authorization") token: String,
-        @Body post: Post
+            @Header("Authorization") token: String,
+            @Body post: Post
     ): Response<AddPostResponse>
 
-    @GET("Post/")
+    @GET("post/")
     suspend fun viewPost(
-        @Header("Authorization") token: String
+            @Header("Authorization") token: String,
     ): Response<GetAllPostResponse>
 
-    @DELETE("Post/{id}")
+    @DELETE("post/{id}")
     suspend fun deletePost(
-        @Header("Authorization")token: String,
-        @Path("id")id:String
+            @Header("Authorization")token: String,
+            @Path("id")id:String
     ): Response<DeletePostResponse>
 
 
     @Multipart
-    @PUT("Post/{id}/photo")
+    @PUT("post/{id}/photo")
     suspend fun uploadImage(
-        @Header("Authorization") token: String,
-        @Path("id") id: String,
-        @Part file: MultipartBody.Part
+            @Header("Authorization") token: String,
+            @Path("id") id: String,
+            @Part file: MultipartBody.Part
     ): Response<PostImageResponse>
 }

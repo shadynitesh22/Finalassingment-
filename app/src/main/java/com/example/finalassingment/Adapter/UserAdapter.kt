@@ -3,7 +3,6 @@ package com.example.finalassingment.Adapter
 import android.app.AlertDialog
 import android.content.Context
 import android.view.LayoutInflater
-import android.view.TextureView
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
@@ -14,7 +13,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.finalassingment.API.ServiceBuilder
 import com.example.finalassingment.Model.Post
-import com.example.finalassingment.Model.User
 import com.example.finalassingment.R
 import com.example.finalassingment.repository.RepoAddPost
 import kotlinx.coroutines.CoroutineScope
@@ -51,8 +49,8 @@ class UserAdapter (
         holder.propertyName.text=post.PostName
         holder.propertyPrice.text=post.PostPrice
         holder.propertyLocation.text=post.PostLocation
-        val imagePath = ServiceBuilder.loadImagePath() + post.PostImg
-        if (!post.PostImg.equals("no-photo.jpg")) {
+        val imagePath = ServiceBuilder.loadImagePath() + post.photo
+        if (!post.photo.equals("no-photo.jpg")) {
             Glide.with(context)
                 .load(imagePath)
                 .fitCenter()
@@ -67,7 +65,7 @@ class UserAdapter (
                 CoroutineScope(Dispatchers.IO).launch {
                     try {
                         val postRepository = RepoAddPost()
-                        val response = postRepository.deletePost(post._id!!)
+                        val response = postRepository.deletePosts(post._id!!)
                         if (response.success == true) {
                             withContext(Dispatchers.Main) {
                                 Toast.makeText(

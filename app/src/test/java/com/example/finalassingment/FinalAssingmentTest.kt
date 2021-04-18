@@ -24,7 +24,7 @@ class FinalAssingmentTest {
     @Test
     fun registerUser() = runBlocking {
         val user =
-                User(username = "test",email = "test", phone = "zxxcxcx", pass = "testpassword")
+                User(username = "test", email = "test", phone = "zxxcxcx", pass = "testpassword")
         userRepository = RepoUser()
         val response = userRepository.registerUser(user)
         val expectedResult = true
@@ -37,7 +37,7 @@ class FinalAssingmentTest {
         userRepository = RepoUser()
         studentRepository = RepoAddPost()
         val student =
-                Post( PostName= "fullName", PostLocation= "Dhapasi", PostPrice = "19000", PostStatus = "address")
+                Post(PostName= "fullName", PostLocation= "Dhapasi", PostStatus = "address", PostPrice = "19000")
         ServiceBuilder.token ="Bearer " + userRepository.loginUser("kiran","kiran123").token
         val expectedResult = true
         val actualResult = studentRepository.addPost(student).success

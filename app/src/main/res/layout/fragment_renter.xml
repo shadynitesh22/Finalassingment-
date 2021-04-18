@@ -9,7 +9,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Renter">
 
-    <!-- TODO: Update blank fragment layout -->
+
     <TextView
         android:fontFamily="@font/cinzel"
         android:textColor="@color/black"
